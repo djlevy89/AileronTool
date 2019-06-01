@@ -250,7 +250,33 @@ public class FlightCharacteristics {
                                     case 'A':
                                         requirements[0] = 30;
                                         requirements[1] = 1.1;
+                                        break;
+                                    case 'B':
+                                        requirements[0] = 90;
+                                        requirements[1] = 2.0;
+                                        break;
+                                    case 'C':
+                                        requirements[0] = 30;
+                                        requirements[1] = 1.1;
+                                        break;
                                 }
+                                break;
+                            case 'L':
+                                switch (aircraft.phase) {
+                                    case 'A':
+                                        requirements[0] = 30;
+                                        requirements[1] = 1.1;
+                                        break;
+                                    case 'B':
+                                        requirements[0] = 90;
+                                        requirements[1] = 2.0;
+                                        break;
+                                    case 'C':
+                                        requirements[0] = 30;
+                                        requirements[1] = 1.1;
+                                        break;
+                                }
+                                break;
                         }
                 }
 
