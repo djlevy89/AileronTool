@@ -153,6 +153,103 @@ public class FlightCharacteristics {
                                         break;
                                     case 'B':
                                         requirements[1] = 2.3;
+                                        break;
+                                    case 'C':
+                                        requirements[1] = 2.5;
+                                        break;
+                                }
+                                break;
+                            case 'M':
+                                switch (aircraft.phase) {
+                                    case 'A':
+                                        requirements[1] = 1.5;
+                                        break;
+                                    case 'B':
+                                        requirements[1] = 2.0;
+                                        break;
+                                    case 'C':
+                                        requirements[1] = 2.5;
+                                        break;
+                                }
+                                break;
+                            case 'H':
+                                switch (aircraft.phase) {
+                                    case 'A':
+                                        requirements[1] = 2.0;
+                                        break;
+                                    case 'B':
+                                        requirements[1] = 2.3;
+                                        break;
+                                    case 'C':
+                                        requirements[1] = 2.5;
+                                        break;
+                                }
+                                break;
+                        }
+                        break;
+                    case 2:
+                        switch (aircraft.speed) {
+                            case 'L':
+                                switch (aircraft.phase) {
+                                    case 'A':
+                                        requirements[1] = 2.4;
+                                        break;
+                                    case 'B':
+                                        requirements[1] = 3.9;
+                                        break;
+                                    case 'C':
+                                        requirements[1] = 4.0;
+                                        break;
+                                }
+                                break;
+                            case 'M':
+                                switch (aircraft.phase) {
+                                    case 'A':
+                                        requirements[1] = 2.0;
+                                        break;
+                                    case 'B':
+                                        requirements[1] = 3.3;
+                                        break;
+                                    case 'C':
+                                        requirements[1] = 4.0;
+                                        break;
+                                }
+                                break;
+                            case 'H':
+                                switch (aircraft.phase) {
+                                    case 'A':
+                                        requirements[1] = 2.5;
+                                        break;
+                                    case 'B':
+                                        requirements[1] = 3.9;
+                                        break;
+                                    case 'C':
+                                        requirements[1] = 4.0;
+                                        break;
+                                }
+                                break;
+                        }
+                        break;
+                    case 3:
+                        switch (aircraft.phase) {
+                            case 'A':
+                                requirements[1] = 3.0;
+                            case 'B':
+                                requirements[1] = 5.0;
+                            case 'C':
+                                requirements[1] = 6.0;
+                        }
+                }
+                break;
+            case 4:
+                switch (aircraft.level) {
+                    case 1:
+                        switch (aircraft.speed) {
+                            case 'V':
+                                switch (aircraft.phase) {
+                                    case 'A':
+                                        requirements[0] = 30;
+                                        requirements[1] = 1.1;
                                 }
                         }
                 }
