@@ -18,7 +18,7 @@ public class FlightCharacteristics {
 
     // Returns the roll control characteristics corresponding to the chosen flight characteristics
     // as specified in MIL-F-8785C
-    public double[] getRollControlRequirements(FlightCharacteristics aircraft) {
+    public static double[] getRollControlRequirements(FlightCharacteristics aircraft) {
         // Initialise variable to be returned with roll response requirements
         double[] requirements = new double[2];
 
@@ -269,7 +269,39 @@ public class FlightCharacteristics {
                                         break;
                                     case 'B':
                                         requirements[0] = 90;
-                                        requirements[1] = 2.0;
+                                        requirements[1] = 1.7;
+                                        break;
+                                    case 'C':
+                                        requirements[0] = 30;
+                                        requirements[1] = 1.1;
+                                        break;
+                                }
+                                break;
+                            case 'M':
+                                switch (aircraft.phase) {
+                                    case 'A':
+                                        requirements[0] = 90;
+                                        requirements[1] = 1.3;
+                                        break;
+                                    case 'B':
+                                        requirements[0] = 90;
+                                        requirements[1] = 1.7;
+                                        break;
+                                    case 'C':
+                                        requirements[0] = 30;
+                                        requirements[1] = 1.1;
+                                        break;
+                                }
+                                break;
+                            case 'H':
+                                switch (aircraft.phase) {
+                                    case 'A':
+                                        requirements[0] = 50;
+                                        requirements[1] = 1.1;
+                                        break;
+                                    case 'B':
+                                        requirements[0] = 90;
+                                        requirements[1] = 1.7;
                                         break;
                                     case 'C':
                                         requirements[0] = 30;
@@ -278,10 +310,193 @@ public class FlightCharacteristics {
                                 }
                                 break;
                         }
+                        break;
+                    case 2:
+                        switch (aircraft.speed) {
+                            case 'V':
+                                switch (aircraft.phase) {
+                                    case 'A':
+                                        requirements[0] = 30;
+                                        requirements[1] = 1.6;
+                                        break;
+                                    case 'B':
+                                        requirements[0] = 90;
+                                        requirements[1] = 2.8;
+                                        break;
+                                    case 'C':
+                                        requirements[0] = 30;
+                                        requirements[1] = 1.3;
+                                        break;
+                                }
+                                break;
+                            case 'L':
+                                switch (aircraft.phase) {
+                                    case 'A':
+                                        requirements[0] = 30;
+                                        requirements[1] = 1.5;
+                                        break;
+                                    case 'B':
+                                        requirements[0] = 90;
+                                        requirements[1] = 2.5;
+                                        break;
+                                    case 'C':
+                                        requirements[0] = 30;
+                                        requirements[1] = 1.3;
+                                        break;
+                                }
+                                break;
+                            case 'M':
+                                switch (aircraft.phase) {
+                                    case 'A':
+                                        requirements[0] = 90;
+                                        requirements[1] = 1.7;
+                                        break;
+                                    case 'B':
+                                        requirements[0] = 90;
+                                        requirements[1] = 2.5;
+                                        break;
+                                    case 'C':
+                                        requirements[0] = 30;
+                                        requirements[1] = 1.3;
+                                        break;
+                                }
+                                break;
+                            case 'H':
+                                switch (aircraft.phase) {
+                                    case 'A':
+                                        requirements[0] = 50;
+                                        requirements[1] = 1.3;
+                                        break;
+                                    case 'B':
+                                        requirements[0] = 90;
+                                        requirements[1] = 2.5;
+                                        break;
+                                    case 'C':
+                                        requirements[0] = 30;
+                                        requirements[1] = 1.3;
+                                        break;
+                                }
+                                break;
+                        }
+                        break;
+                    case 3:
+                        switch (aircraft.speed) {
+                            case 'V':
+                                switch (aircraft.phase) {
+                                    case 'A':
+                                        requirements[0] = 30;
+                                        requirements[1] = 2.6;
+                                        break;
+                                    case 'B':
+                                        requirements[0] = 90;
+                                        requirements[1] = 3.7;
+                                        break;
+                                    case 'C':
+                                        requirements[0] = 30;
+                                        requirements[1] = 2.0;
+                                        break;
+                                }
+                                break;
+                            case 'L':
+                                switch (aircraft.phase) {
+                                    case 'A':
+                                        requirements[0] = 30;
+                                        requirements[1] = 2.0;
+                                        break;
+                                    case 'B':
+                                        requirements[0] = 90;
+                                        requirements[1] = 3.4;
+                                        break;
+                                    case 'C':
+                                        requirements[0] = 30;
+                                        requirements[1] = 2.0;
+                                        break;
+                                }
+                                break;
+                            case 'M':
+                                switch (aircraft.phase) {
+                                    case 'A':
+                                        requirements[0] = 90;
+                                        requirements[1] = 2.6;
+                                        break;
+                                    case 'B':
+                                        requirements[0] = 90;
+                                        requirements[1] = 3.4;
+                                        break;
+                                    case 'C':
+                                        requirements[0] = 30;
+                                        requirements[1] = 2.0;
+                                        break;
+                                }
+                                break;
+                            case 'H':
+                                switch (aircraft.phase) {
+                                    case 'A':
+                                        requirements[0] = 50;
+                                        requirements[1] = 2.6;
+                                        break;
+                                    case 'B':
+                                        requirements[0] = 90;
+                                        requirements[1] = 3.4;
+                                        break;
+                                    case 'C':
+                                        requirements[0] = 30;
+                                        requirements[1] = 2.0;
+                                        break;
+                                }
+                                break;
+                        }
+                        break;
                 }
-
+                break;
         }
 
         return requirements;
+    }
+
+    public static void main(String[] args) {
+        for (int i = 1; i < 4; i++) {
+            for (char j = 'A'; j < 'D'; j++) {
+                FlightCharacteristics a = new FlightCharacteristics(1,j,i,'0','0');
+                double[] requirements = getRollControlRequirements(a);
+                System.out.print(requirements[0]+" degrees in "+requirements[1]+" seconds ");
+            }
+            System.out.print("\n");
+        }
+
+        char[] d = {'L','C'};
+        for (int i = 1; i < 4; i++) {
+            for (char e : d) {
+                for (char j = 'A'; j < 'D'; j++) {
+                    FlightCharacteristics a = new FlightCharacteristics(2, j, i, e, '0');
+                    double[] requirements = getRollControlRequirements(a);
+                    System.out.print(requirements[0] + " degrees in " + requirements[1] + " seconds ");
+                }
+                System.out.print("\n");
+            }
+        }
+        char[] f = {'L','M','H'};
+        for (int i = 1; i < 4; i++) {
+            for (char e : f) {
+                for (char j = 'A'; j < 'D'; j++) {
+                    FlightCharacteristics a = new FlightCharacteristics(3, j, i, '0', e);
+                    double[] requirements = getRollControlRequirements(a);
+                    System.out.print(requirements[0] + " degrees in " + requirements[1] + " seconds ");
+                }
+                System.out.print("\n");
+            }
+        }
+
+        char[] g = {'V','L','M','H'};
+        for (int i = 1; i < 4; i++) {
+            for (char e : g) {
+                for (char j = 'A'; j < 'D'; j++) {
+                    FlightCharacteristics a = new FlightCharacteristics(4, j, i, '0', e);
+                    double[] requirements = getRollControlRequirements(a);
+                    System.out.print(requirements[0] + " degrees in " + requirements[1] + " seconds ");
+                }
+                System.out.print("\n");
+            }
+        }
     }
 }
