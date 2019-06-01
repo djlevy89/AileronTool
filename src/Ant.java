@@ -28,7 +28,7 @@ import javafx.util.Duration;
 
 public class Ant extends Application {
 
-    
+
 
     double currentX, currentY;
 
