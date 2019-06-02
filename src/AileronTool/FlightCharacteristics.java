@@ -1,5 +1,6 @@
-public class FlightCharacteristics {
+package AileronTool;
 
+public class FlightCharacteristics {
     // Initialise variables and constants
     private int type;
     private char phase;
@@ -452,51 +453,5 @@ public class FlightCharacteristics {
         }
 
         return requirements;
-    }
-
-    public static void main(String[] args) {
-        for (int i = 1; i < 4; i++) {
-            for (char j = 'A'; j < 'D'; j++) {
-                FlightCharacteristics a = new FlightCharacteristics(1,j,i,'0','0');
-                double[] requirements = getRollControlRequirements(a);
-                System.out.print(requirements[0]+" degrees in "+requirements[1]+" seconds ");
-            }
-            System.out.print("\n");
-        }
-
-        char[] d = {'L','C'};
-        for (int i = 1; i < 4; i++) {
-            for (char e : d) {
-                for (char j = 'A'; j < 'D'; j++) {
-                    FlightCharacteristics a = new FlightCharacteristics(2, j, i, e, '0');
-                    double[] requirements = getRollControlRequirements(a);
-                    System.out.print(requirements[0] + " degrees in " + requirements[1] + " seconds ");
-                }
-                System.out.print("\n");
-            }
-        }
-        char[] f = {'L','M','H'};
-        for (int i = 1; i < 4; i++) {
-            for (char e : f) {
-                for (char j = 'A'; j < 'D'; j++) {
-                    FlightCharacteristics a = new FlightCharacteristics(3, j, i, '0', e);
-                    double[] requirements = getRollControlRequirements(a);
-                    System.out.print(requirements[0] + " degrees in " + requirements[1] + " seconds ");
-                }
-                System.out.print("\n");
-            }
-        }
-
-        char[] g = {'V','L','M','H'};
-        for (int i = 1; i < 4; i++) {
-            for (char e : g) {
-                for (char j = 'A'; j < 'D'; j++) {
-                    FlightCharacteristics a = new FlightCharacteristics(4, j, i, '0', e);
-                    double[] requirements = getRollControlRequirements(a);
-                    System.out.print(requirements[0] + " degrees in " + requirements[1] + " seconds ");
-                }
-                System.out.print("\n");
-            }
-        }
     }
 }
