@@ -19,29 +19,26 @@ public class FlightSpeedCategory {
     }
 
     public static char getFlightSpeed(FlightSpeedCategory flight) {
+        double V_min = 1.1*(double)flight.stall;
         switch (flight.type) {
             case 3:
-                double V_min = 1.1*(double)flight.stall;
-                switch (flight.level) {
-                    case 1:
-                        if (flight.speed < 1.8*V_min) {
-                            return 'L';
-                        } else if (flight.speed >= 1.8*V_min && flight.speed < .7*flight.max) {
-                            return 'M';
-                        } else if (flight.speed >= 0.7*flight.max) {
-                            return 'H';
-                        }
-                    case 2:
-                        if (flight.speed < 1.8*V_min) {
-                            return 'L';
-                        } else if (flight.speed >= 1.8*V_min && flight.speed < .7*flight.max) {
-                            return 'M';
-                        } else if (flight.speed >= 0.7*flight.max) {
-                            return 'H';
-                        }
-                        break;
+                if (flight.speed < 1.8*V_min) {
+                    return 'L';
+                } else if (flight.speed >= 1.8*V_min && flight.speed < .7*flight.max) {
+                    return 'M';
+                } else if (flight.speed >= 0.7*flight.max) {
+                    return 'H';
                 }
-
+            case 4:
+                if (flight.speed < V_min+20) {
+                    return 'V';
+                } else if (flight.speed >= V_min+20 && flight.speed < 1.4*V_min) {
+                    return 'L';
+                } else if (flight.speed >= 1.4*V_min && flight.speed <= 0.7*flight.max) {
+                    return 'M';
+                } else if (flight.speed >= 0.7*flight.max) {
+                    return 'H';
+                }
 
         }
         return 'A';
