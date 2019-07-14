@@ -1,6 +1,8 @@
 
 package AileronTool;
 import java.lang.Math;
+import java.util.ArrayList;
+import java.util.List;
 
 public class RollRateResponse {
 
@@ -70,6 +72,7 @@ public class RollRateResponse {
 
     public static void main(String[] args) {
         // System.out.println(verify(61.5,50.1, 0.22, 25*Math.PI/180));
+        ArrayList<double[]> Configs = new ArrayList<>();
         for (int a=5; a < 31; a=a+5) {
            for (int b = 5; b < 31; b++) {
               for (int c = 20; c < 62; c++) {
@@ -79,12 +82,14 @@ public class RollRateResponse {
                       double dc = (double)c;
                       double dd = (double)d;
                       if (verify(dc, dd, db, da)) {
-
+                          double[] populator = {dc, dd, db, da};
+                          Configs.add(populator);
                       }
                   }
               }
            }
         }
+        System.out.println(Configs.size());
     }
 
 
