@@ -36,9 +36,23 @@ public class RollRateResponse {
         return (P_ss*P_ss)/(2*phi_1);
     }
 
-    public static double t_ss(double P_ss, double phi_1) {
-        return (P_ss*P_ss)/(2*phi_1);
+    public static double t_ss(double phi_1, double P_dot) {
+        return Math.sqrt((2*phi_1)/P_dot);
     }
+
+    public static boolean verify (double y_o, double y_i, double CCa, double delta_A) {
+        double tau = tau(CCa);
+        double C_ldA = C_ldA(y_o, y_i, tau);
+        double C_l = C_l(C_ldA, delta_A);
+        double L_A = L_A(C_l);
+        double P_ss = P_ss(L_A);
+        
+        /*if () {
+
+        }*/
+        return false;
+    }
+
 
 
 }
