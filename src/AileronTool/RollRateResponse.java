@@ -66,7 +66,7 @@ public class RollRateResponse {
         if (phi_1 > 30*Math.PI/180) {
             // System.out.println("a");
             // System.out.println(t_ss(30*Math.PI/180, P_dot));
-            return (t_ss(30*Math.PI/180, P_dot) > 2.25 && t_ss(30*Math.PI/180, P_dot) < 2.75);
+            return (t_ss(30*Math.PI/180, P_dot) > 2.49 && t_ss(30*Math.PI/180, P_dot) < 2.51);
         } else {
             // System.out.println("b");
             // System.out.println(t_ss(phi_1, P_dot));
@@ -79,15 +79,15 @@ public class RollRateResponse {
         // System.out.println(verify(61.5,50.1, 0.22, 25*Math.PI/180));
         ArrayList<double[]> Configs = new ArrayList<>();
 
-        for (int a = 5; a < 31; a=a+5) {
-           for (int b = 5; b < 31; b++) {
-              for (int c = 20; c < 62; c++) {
-                  for (int d = 20; d < c; d++) {
+        for (int a = 15; a < 31; a++) {
+           for (int b = 10; b < 31; b++) {
+              for (int c = 8; c < 62; c++) {
+                  for (int d = 8; d < c; d++) {
                       double da = (double)a*Math.PI/180;
                       double db = (double)b/100;
                       double dc = (double)c;
                       double dd = (double)d;
-                      if (verify(dc, dd, db, da)) {
+                      if (verify(dc, dd, db, da) && dc - dd > 5) {
                           double score = (dc - dd)*db;
                           double[] populator = {dc, dd, db, da, score, HMTemp(db, dc, dd, da)};
                           Configs.add(populator);
@@ -96,14 +96,14 @@ public class RollRateResponse {
               }
            }
         }
-        /*System.out.println(Configs.size());
+        System.out.println(Configs.size());
         double[] test = Configs.get(0);
         System.out.println(test[0]);
         System.out.println(test[1]);
         System.out.println(test[2]);
         System.out.println(test[3]);
         System.out.println(test[4]);
-        System.out.println(test[5]);*/
+        System.out.println(test[5]);
 
         System.out.println(Configs.size());
 
@@ -122,8 +122,7 @@ public class RollRateResponse {
             }
             Optimum.add(current);
         }
-
-        System.out.println(Optimum.size());
+     /*   System.out.println(Optimum.size());
         double[] test = Optimum.get(0);
         System.out.println(test[0]);
         System.out.println(test[1]);
@@ -133,7 +132,7 @@ public class RollRateResponse {
         ArrayList<double[]> OptimumHinge = new ArrayList<>();
         double[] feh = Optimum.get(0);
         double[] fleh = {feh[0], feh[1], feh[2], feh[3], feh[4], feh[5], 0.0};
-        OptimumHinge.add(fleh);
+        OptimumHinge.add(fleh);*/
         /*Opt2:
         for (int i = 1; i < Configs.size(); i++) {
             double[] current = Configs.get(i);
@@ -147,12 +146,12 @@ public class RollRateResponse {
             OptimumHinge.add(current);
         }*/
 
-        Opt2:
+      /*  Opt2:
         for (int i = 1; i < Optimum.size(); i++) {
             double[] current = Optimum.get(i);
             for (int j = 0; j < OptimumHinge.size(); j++) {
                 double[] previous = OptimumHinge.get(j);
-                if (current[5] > previous[5]) {
+                if (current[5] < previous[5]) {
                     double[] next = {current[0], current[1], current[2], current[3], current[4], current[5],(double)i};
                     OptimumHinge.add(j,next);
                     continue Opt2;
@@ -160,8 +159,8 @@ public class RollRateResponse {
             }
             double[] fleeh = {current[0], current[1], current[2], current[3], current[4], current[5], (double)i};
             OptimumHinge.add(fleh);
-        }
-
+        }*/
+/*
         System.out.println(OptimumHinge.size());
         double[] test2 = OptimumHinge.get(0);
         System.out.println(test2[0]);
@@ -177,6 +176,7 @@ public class RollRateResponse {
             // System.out.println(sb[6]);
             // System.out.println(i);
             String sum = Integer.toString(i+(int)sb[6]);
+            sum = sum+" rollscore: "+sb[6]+" hingescore: "+i+"\n";
             sort.add(sum);
         }
 
@@ -185,6 +185,12 @@ public class RollRateResponse {
         for (int i = 0; i < sort.size(); i++) {
             System.out.println(sort.get(i));
         }
+
+        double[] winner = OptimumHinge.get(0);
+        System.out.println(winner[0]);
+        System.out.println(winner[1]);
+        System.out.println(winner[2]);
+        System.out.println(winner[3]);*/
 
         // double[] pls = sort.get(0);
 
