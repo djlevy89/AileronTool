@@ -131,7 +131,9 @@ public class RollRateResponse {
         System.out.println(test[3]);
 
         ArrayList<double[]> OptimumHinge = new ArrayList<>();
-        OptimumHinge.add(Optimum.get(0));
+        double[] feh = Optimum.get(0);
+        double[] fleh = {feh[0], feh[1], feh[2], feh[3], feh[4], feh[5], 0.0};
+        OptimumHinge.add(fleh);
         /*Opt2:
         for (int i = 1; i < Configs.size(); i++) {
             double[] current = Configs.get(i);
@@ -156,7 +158,8 @@ public class RollRateResponse {
                     continue Opt2;
                 }
             }
-            OptimumHinge.add(current);
+            double[] fleeh = {current[0], current[1], current[2], current[3], current[4], current[5], (double)i};
+            OptimumHinge.add(fleh);
         }
 
         System.out.println(OptimumHinge.size());
@@ -170,6 +173,9 @@ public class RollRateResponse {
 
         for (int i = 0; i < OptimumHinge.size(); i++) {
             double[] sb = OptimumHinge.get(i);
+            // System.out.println("a");
+            // System.out.println(sb[6]);
+            // System.out.println(i);
             String sum = Integer.toString(i+(int)sb[6]);
             sort.add(sum);
         }
@@ -179,6 +185,8 @@ public class RollRateResponse {
         for (int i = 0; i < sort.size(); i++) {
             System.out.println(sort.get(i));
         }
+
+        // double[] pls = sort.get(0);
 
         /*for (int i = 0; i < 3; i++) {
             double[] roll =  Optimum.get(i);
