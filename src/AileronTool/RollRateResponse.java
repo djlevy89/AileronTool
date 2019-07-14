@@ -42,6 +42,11 @@ public class RollRateResponse {
         return Math.sqrt((2*phi_1)/P_dot);
     }
 
+    public static double HM(double phi_1, double P_dot) {
+        return Math.sqrt((2*phi_1)/P_dot);
+    }
+
+
     public static boolean verify (double y_o, double y_i, double CCa, double delta_A) {
         double tau = tau(CCa);
         // System.out.println(tau+" tau");
@@ -81,7 +86,7 @@ public class RollRateResponse {
                       double db = (double)b/100;
                       double dc = (double)c;
                       double dd = (double)d;
-                      if (verify(dc, dd, db, da)) {
+                      if (verify(dc, dd, db, da)    ) {
                           double[] populator = {dc, dd, db, da};
                           Configs.add(populator);
                       }
